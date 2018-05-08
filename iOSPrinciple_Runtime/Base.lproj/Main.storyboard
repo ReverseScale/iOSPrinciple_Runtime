@@ -1,24 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fjs-Yg-KbO">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="OLu-bt-WZP">
+            <objects>
+                <navigationController id="fjs-Yg-KbO" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BMH-o4-3Ki">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="TQL-tW-2jK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GaW-Bc-tUd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-945" y="34"/>
+        </scene>
+        <!--Runtime-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sz4-kH-ReV">
+                                <rect key="frame" x="76" y="229" width="223" height="30"/>
+                                <state key="normal" title="第一次机会: 所属类动态方法解析"/>
+                                <connections>
+                                    <action selector="action01:" destination="BYZ-38-t0r" eventType="touchUpInside" id="j90-tM-Mbd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jru-Qd-c0c">
+                                <rect key="frame" x="106" y="318.5" width="162" height="30"/>
+                                <state key="normal" title="第三次机会: 消息重定向"/>
+                                <connections>
+                                    <action selector="action03:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S7R-X1-yMF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HXU-Nj-acA">
+                                <rect key="frame" x="156" y="398.5" width="62" height="30"/>
+                                <state key="normal" title="方法交换"/>
+                                <connections>
+                                    <action selector="actionExt:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oUI-R6-iS1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AdJ-VK-9cY">
+                                <rect key="frame" x="106" y="274" width="162" height="30"/>
+                                <state key="normal" title="第二次机会: 备援接收者"/>
+                                <connections>
+                                    <action selector="action02:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5mJ-5J-9mr"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="HXU-Nj-acA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4M4-fp-OKS"/>
+                            <constraint firstItem="AdJ-VK-9cY" firstAttribute="top" secondItem="sz4-kH-ReV" secondAttribute="bottom" constant="15" id="INa-hs-T9w"/>
+                            <constraint firstItem="Jru-Qd-c0c" firstAttribute="top" secondItem="AdJ-VK-9cY" secondAttribute="bottom" constant="15" id="Jhb-E5-nF9"/>
+                            <constraint firstItem="HXU-Nj-acA" firstAttribute="top" secondItem="Jru-Qd-c0c" secondAttribute="bottom" constant="50" id="PeU-uX-dKb"/>
+                            <constraint firstItem="sz4-kH-ReV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="S1B-fQ-Aay"/>
+                            <constraint firstItem="Jru-Qd-c0c" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="VHA-Y8-dan"/>
+                            <constraint firstItem="AdJ-VK-9cY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Yi6-sM-7d0"/>
+                            <constraint firstItem="Jru-Qd-c0c" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vDf-DJ-juy"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Runtime" id="qPu-Nd-gPw"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-188" y="34"/>
         </scene>
     </scenes>
 </document>

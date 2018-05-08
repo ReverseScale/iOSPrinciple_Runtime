@@ -15,6 +15,11 @@
 		34964B5420A13A6100642082 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 34964B5320A13A6100642082 /* main.m */; };
 		34964B5E20A13A6100642082 /* iOSPrinciple_RuntimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 34964B5D20A13A6100642082 /* iOSPrinciple_RuntimeTests.m */; };
 		34964B6920A13A6100642082 /* iOSPrinciple_RuntimeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 34964B6820A13A6100642082 /* iOSPrinciple_RuntimeUITests.m */; };
+		34964B7820A153A400642082 /* Runtime01ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34964B7720A153A400642082 /* Runtime01ViewController.m */; };
+		34964B7B20A1542000642082 /* Runtime02ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34964B7A20A1542000642082 /* Runtime02ViewController.m */; };
+		34964B7E20A1547B00642082 /* Runtime03ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34964B7D20A1547B00642082 /* Runtime03ViewController.m */; };
+		34964B8120A154E700642082 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 34964B8020A154E700642082 /* Person.m */; };
+		34964B8420A1565400642082 /* ExtViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34964B8320A1565400642082 /* ExtViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +56,16 @@
 		34964B6420A13A6100642082 /* iOSPrinciple_RuntimeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSPrinciple_RuntimeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		34964B6820A13A6100642082 /* iOSPrinciple_RuntimeUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOSPrinciple_RuntimeUITests.m; sourceTree = "<group>"; };
 		34964B6A20A13A6100642082 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		34964B7620A153A400642082 /* Runtime01ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Runtime01ViewController.h; sourceTree = "<group>"; };
+		34964B7720A153A400642082 /* Runtime01ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Runtime01ViewController.m; sourceTree = "<group>"; };
+		34964B7920A1542000642082 /* Runtime02ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Runtime02ViewController.h; sourceTree = "<group>"; };
+		34964B7A20A1542000642082 /* Runtime02ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Runtime02ViewController.m; sourceTree = "<group>"; };
+		34964B7C20A1547B00642082 /* Runtime03ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Runtime03ViewController.h; sourceTree = "<group>"; };
+		34964B7D20A1547B00642082 /* Runtime03ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Runtime03ViewController.m; sourceTree = "<group>"; };
+		34964B7F20A154E700642082 /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		34964B8020A154E700642082 /* Person.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		34964B8220A1565400642082 /* ExtViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExtViewController.h; sourceTree = "<group>"; };
+		34964B8320A1565400642082 /* ExtViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExtViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +120,16 @@
 				34964B4520A13A5800642082 /* AppDelegate.m */,
 				34964B4720A13A5800642082 /* ViewController.h */,
 				34964B4820A13A5800642082 /* ViewController.m */,
+				34964B8220A1565400642082 /* ExtViewController.h */,
+				34964B8320A1565400642082 /* ExtViewController.m */,
+				34964B7F20A154E700642082 /* Person.h */,
+				34964B8020A154E700642082 /* Person.m */,
+				34964B7620A153A400642082 /* Runtime01ViewController.h */,
+				34964B7720A153A400642082 /* Runtime01ViewController.m */,
+				34964B7920A1542000642082 /* Runtime02ViewController.h */,
+				34964B7A20A1542000642082 /* Runtime02ViewController.m */,
+				34964B7C20A1547B00642082 /* Runtime03ViewController.h */,
+				34964B7D20A1547B00642082 /* Runtime03ViewController.m */,
 				34964B4A20A13A5800642082 /* Main.storyboard */,
 				34964B4D20A13A6100642082 /* Assets.xcassets */,
 				34964B4F20A13A6100642082 /* LaunchScreen.storyboard */,
@@ -262,8 +287,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34964B7E20A1547B00642082 /* Runtime03ViewController.m in Sources */,
+				34964B7B20A1542000642082 /* Runtime02ViewController.m in Sources */,
+				34964B8120A154E700642082 /* Person.m in Sources */,
+				34964B7820A153A400642082 /* Runtime01ViewController.m in Sources */,
 				34964B4920A13A5800642082 /* ViewController.m in Sources */,
 				34964B5420A13A6100642082 /* main.m in Sources */,
+				34964B8420A1565400642082 /* ExtViewController.m in Sources */,
 				34964B4620A13A5800642082 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
