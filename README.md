@@ -251,7 +251,7 @@ struct category_t {
 };
 ```
 * name：是指 class_name 而不是 category_name。
-* cls：要扩展的类对象，编译期间是不会定义的，而是在Runtime阶段通过name对 应到对应的类对象。
+* cls：要扩展的类对象，编译期间是不会定义的，而是在Runtime阶段通过name对应到对应的类对象。
 * instanceMethods：category中所有给类添加的实例方法的列表。
 * classMethods：category中所有添加的类方法的列表。
 * protocols：category实现的所有协议的列表。
@@ -269,7 +269,7 @@ struct category_t {
 ```objc
 +(BOOL)resolveInstanceMethod:(SEL)name
 ```
-原型是
+动态转发
 ```objc
 BOOL class_addMethod(Class cls, SEL name, IMP imp, const char *types);
 ```
@@ -319,7 +319,7 @@ void fooMethod(id obj, SEL _cmd) {
 @implementation Person
 
 - (void)foo {
-NSLog(@"Doing foo");//Person的foo函数
+    NSLog(@"Doing foo");//Person的foo函数
 }
 
 @end
@@ -427,13 +427,14 @@ Type Encodings: https://developer.apple.com/library/content/documentation/Cocoa/
 
 Runtime简直就是做大型框架的利器。它的应用场景非常多，下面就介绍一些常见的应用场景。
 
-* 关联对象(Objective-C Associated Objects)给分类增加属性
-* 方法魔法(Method Swizzling)方法添加和替换和KVO实现
-* 消息转发(热更新)解决Bug(JSPatch)
+* 关联对象(Objective-C Associated Objects)：给分类增加属性
+* 方法魔法(Method Swizzling)：方法添加和替换和KVO实现
+* 消息转发(热更新)：解决Bug(JSPatch)
 * 实现NSCoding的自动归档和自动解档
 * 实现字典和模型的自动转换(MJExtension)
 
-1.关联对象(Objective-C Associated Objects)给分类增加属性
+1.关联对象(Objective-C Associated Objects)：给分类增加属性
+
 我们都是知道分类是不能自定义属性和变量的。下面通过关联对象实现给分类添加属性。
 关联对象Runtime提供了下面几个接口：
 ```objc
@@ -451,7 +452,7 @@ const void *key：关联的key，要求唯一
 id value：关联的对象
 objc_AssociationPolicy policy：内存管理的策略
 ```
-内存管理的策略
+这里插一下内存管理的策略相关知识，防懵逼 😳
 ```c
 typedef OBJC_ENUM(uintptr_t, objc_AssociationPolicy) {
     OBJC_ASSOCIATION_ASSIGN = 0,           /**< Specifies a weak reference to the associated object. */
@@ -510,7 +511,7 @@ static char kDefaultColorKey;
 
 打印结果来看，我们成功在分类上添加了一个属性，实现了它的setter和getter方法。 通过关联对象实现的属性的内存管理也是有ARC管理的，所以我们只需要给定适当的内存策略就行了，不需要操心对象的释放。
 
-2.方法魔法(Method Swizzling)方法添加和替换和KVO实现
+2.方法魔法(Method Swizzling)：方法添加和替换和KVO实现
 
 1)方法添加
 
@@ -620,7 +621,7 @@ KVO 为子类的观察者属性重写调用存取方法的工作原理在代码�
 }
 ```
 
-4)消息转发(热更新)解决Bug(JSPatch)
+4)消息转发(热更新)：解决Bug(JSPatch)
 
 JSPatch 是一个 iOS 动态更新框架，只需在项目中引入极小的引擎，就可以使用 JavaScript 调用任何 Objective-C 原生接口，获得脚本语言的优势：为项目动态添加模块，或替换项目原生代码动态修复 bug。
 
@@ -628,7 +629,9 @@ JSPatch 是一个 iOS 动态更新框架，只需在项目中引入极小的引�
 
 5)实现NSCoding的自动归档和自动解档
 
-原理描述：用runtime提供的函数遍历Model自身所有属性，并对属性进行encode和decode操作。 核心方法：在Model的基类中重写方法：
+原理描述：用runtime提供的函数遍历Model自身所有属性，并对属性进行encode和decode操作。 
+
+核心方法：在Model的基类中重写方法：
 
 ```objc
 - (id)initWithCoder:(NSCoder *)aDecoder {
@@ -656,7 +659,9 @@ JSPatch 是一个 iOS 动态更新框架，只需在项目中引入极小的引�
 
 6)实现字典和模型的自动转换(MJExtension)
 
-原理描述：用runtime提供的函数遍历Model自身所有属性，如果属性在json中有对应的值，则将其赋值。 核心方法：在NSObject的分类中添加方法
+原理描述：用runtime提供的函数遍历Model自身所有属性，如果属性在json中有对应的值，则将其赋值。 
+
+核心方法：在NSObject的分类中添加方法
 
 ```objc
 - (instancetype)initWithDict:(NSDictionary *)dict {
@@ -692,6 +697,8 @@ JSPatch 是一个 iOS 动态更新框架，只需在项目中引入极小的引�
     return self;
 }
 ```
+
+以上就是 Runtime 的底层原理，Runtime 也可以说是很多 iOS 特性的动效支撑。
 
 > 以上原理解析文章来源：https://juejin.im/post/5ac0a6116fb9a028de44d717
 
