@@ -6,7 +6,7 @@ Objective-C 扩展了 C 语言，并加入了面向对象特性和 Smalltalk 式
 
 Objective-C 是一个动态语言，这意味着它不仅需要一个编译器，也需要一个运行时系统来动态得创建类和对象、进行消息传递和转发。理解 Objective-C 的 Runtime 机制可以帮我们更好的了解这个语言，适当的时候还能对语言进行扩展，从系统层面解决项目中的一些设计或技术问题。
 
-*Runtime 版本演化*
+*1.Runtime 版本演化*
 
 Runtime其实有两个版本: “modern” 和 “legacy”。
 
@@ -16,7 +16,7 @@ Runtime其实有两个版本: “modern” 和 “legacy”。
 
 这两个版本最大的区别在于当你更改一个类的实例变量的布局时，在早期版本中你需要重新编译它的子类，而现行版就不需要。
 
-*Runtime 实质作用*
+*2.Runtime 实质作用*
 
 高级编程语言想要成为可执行文件需要先编译为汇编语言再汇编为机器语言，机器语言也是计算机能够识别的唯一语言，但是OC并不能直接编译为汇编语言，而是要先转写为纯C语言再进行编译和汇编的操作，从OC到C语言的过渡就是由runtime来实现的。
 
@@ -37,7 +37,7 @@ objc_msgSend(obj, foo)
 * 如果 class 中没到 foo，继续往它的 superclass 中找 ;
 * 一旦找到 foo 这个函数，就去执行它的实现IMP 。
 
-*objc_cache 缓存机制*
+*3.objc_cache 缓存机制*
 
 但是，上面这种实现有个问题，效率低。
 
@@ -46,6 +46,8 @@ objc_msgSend(obj, foo)
 这也就是 objc_class 中另一个重要成员 objc_cache 做的事情，再找到 foo 之后，把 foo 的 method_name 作为key，method_imp 作为 value 给存起来。当再次收到 foo 消息的时候，可以直接在 cache 里找到，避免去遍历 objc_method_list。
 
 从前面的源代码可以看到objc_cache是存在objc_class 结构体中的。
+
+*4.objec_msgSend 方法*
 
 objec_msgSend的方法定义如下：
 ```c
